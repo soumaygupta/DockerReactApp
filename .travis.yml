@@ -3,7 +3,7 @@ services: #services we need preinstalled
 - docker
 
 before_install: #series of command to run before deploy of project or test run
-- docker build -t soumay94/DockerReactApp -f Dockerfile.dev .
+- docker build -t soumay94/dockerreactapp -f Dockerfile.dev .
 
 script:
 - docker run soumay94/DockerReactApp npm run test -- --coverage #-- --coverage is added to automatically exit test case 
