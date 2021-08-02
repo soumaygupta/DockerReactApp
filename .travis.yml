@@ -6,5 +6,6 @@ before_install: #series of command to run before deploy of project or test run
 - docker build -t soumay94/dockerreactapp -f Dockerfile.dev .
 
 script:
-- docker run soumay94/dockerreactapp npm run test -- --coverage #-- --coverage is added to automatically exit test case 
+        #- docker run soumay94/dockerreactapp npm run test -- --coverage #-- --coverage is added to automatically exit test case 
+- docker run -e CI=true soumay94/dockerreactapp npm run test
 
