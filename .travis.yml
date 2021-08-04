@@ -9,3 +9,16 @@ script:
         #- docker run soumay94/dockerreactapp npm run test -- --coverage #-- --coverage is added to automatically exit test case 
 - docker run -e CI=true soumay94/dockerreactapp npm run test
 
+deploy:
+  provider: elasticbeanstalk
+  region: "us-west-2"
+  app: "docker" #name of the app created in elastic beanstalk
+  env: "Docker-env"
+  bucket_name: "bucket-name"
+  bucket_path: "docker"  # It will be same as app name as one app engine will run it will create the files automatically
+  on:
+    branch: master
+  access_key_id:
+  secret_key_id:
+
+
